@@ -16,11 +16,6 @@ spec:
       containers:
       - image: supertylerc/jinja2-live-parser:arm
         name: j2parser
-        command:
-        - sh
-        - -c
-        - /usr/local/bin/python
-        - /data/parser.py
 ---
 kind: Service
 apiVersion: v1
