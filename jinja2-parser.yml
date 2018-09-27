@@ -14,7 +14,7 @@ spec:
         run: j2parser
     spec:
       containers:
-      - image: sahilsk/j2parser
+      - image: supertylerc/jinja2-live-parser:arm
         name: j2parser
         command:
         - sh
