@@ -1,0 +1,35 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: j2parser
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: j2parser
+  template:
+    metadata:
+      labels:
+        run: j2parser
+    spec:
+      containers:
+      - image: sahilsk/j2parser
+        name: j2parser
+        command:
+        - sh
+        - -c
+        - /usr/local/bin/python
+        - /data/parser.py
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: j2parser
+spec:
+  selector:
+    run: j2parser
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
